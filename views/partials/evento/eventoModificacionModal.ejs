@@ -1,0 +1,114 @@
+<!-- Modal para modificación de evento -->
+<div
+  class="modal fade"
+  id="eventoModificacionModal"
+  tabindex="-1"
+  aria-labelledby="eventoModificacionModalLabel"
+  aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Encabezado -->
+            <div class="modal-header">
+                <h5 class="modal-title mx-auto" id="eventoModificacionModalLabel">
+                Modificación de evento
+                </h5>
+                <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+                ></button>
+            </div>
+
+            <!-- Cuerpo con formulario -->
+            <div class="modal-body">
+                <form id="eventoModificacionForm">
+
+                    <input type="hidden" id="modificacionEventoID" name="id">
+
+                    <div class="mb-3">
+                        <label for="fechaModificacionEventoInput" class="form-label">Fecha</label>
+                        <input
+                        type="date"
+                        class="form-control"
+                        id="fechaModificacionEventoInput"
+                        name="fecha"
+                        required
+                        >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="horaDesdeModificacionEventoInput" class="form-label">
+                        Hora desde
+                        </label>
+                        <input
+                        type="time"
+                        class="form-control"
+                        id="horaDesdeModificacionEventoInput"
+                        name="hora_desde"
+                        step="60"
+                        required
+                        >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="horaHastaModificacionEventoInput" class="form-label">
+                        Hora hasta
+                        </label>
+                        <input
+                        type="time"
+                        class="form-control"
+                        id="horaHastaModificacionEventoInput"
+                        name="hora_hasta"
+                        step="60"
+                        required
+                        >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="descripcionModificacionEventoInput" class="form-label">
+                        Descripción
+                        </label>
+
+                        <textarea
+                        class="form-control"
+                        id="descripcionModificacionEventoInput"
+                        name="descripcion"
+                        rows="3"
+                        maxlength="300"
+                        required
+                        ></textarea>
+
+                    </div>
+                
+                </form>
+            </div>
+
+            <!-- Pie de modal -->
+            <div class="modal-footer">
+
+                <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+                >
+                Cancelar
+                </button>
+
+                <button
+                type="button"
+                form="claseModificacionForm"
+                class="btn btn-primary"
+                onclick="modificarEvento()"
+                >
+                Modificar evento
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

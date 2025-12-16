@@ -1,0 +1,155 @@
+<!-- Formulario para la creación del estudiante -->
+<!-- Aparece y desaparece dependiendo de si el usuario hizo click en "Crear estudiante" o no -->
+<div
+  class="modal fade"
+  id="estudianteCreacionModal"
+  tabindex="-1"
+  aria-labelledby="estudianteCreacionModalLabel"
+  aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+        
+            <!-- Encabezado -->
+            <div class="modal-header">
+                <h5 class="modal-title mx-auto" 
+                    id="estudianteCreacionModalLabel">
+                    Creación de estudiante
+                </h5>
+                <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+                ></button>
+            </div>
+            
+            <!-- Cuerpo con formulario -->
+            <div class="modal-body">
+                <form id="estudianteCreacionForm">
+
+                    <div class="mb-3">
+                        <label for="nombreCreacionInput" class="form-label">Nombre</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="nombreCreacionInput"
+                        required
+                        />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="apellidoCreacionInput" class="form-label">Apellido</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="apellidoCreacionInput"
+                        required
+                        />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="direccionCreacionInput" class="form-label">Dirección</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="direccionCreacionInput"
+                        required
+                        />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="celularCreacionInput" class="form-label">Celular</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="celularCreacionInput"
+                        required
+                        />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nacionalidadCreacionSelect" class="form-label">Nacionalidad</label>
+                        <select class="form-select" id="nacionalidadCreacionSelect" required>
+                            <option value="" selected disabled>Seleccione un país</option>
+
+                            <optgroup label="🌎 Latinoamérica">
+                                <option value="Argentina">🇦🇷 Argentina</option>
+                                <option value="Bolivia">🇧🇴 Bolivia</option>
+                                <option value="Brasil">🇧🇷 Brasil</option>
+                                <option value="Chile">🇨🇱 Chile</option>
+                                <option value="Colombia">🇨🇴 Colombia</option>
+                                <option value="Costa Rica">🇨🇷 Costa Rica</option>
+                                <option value="Cuba">🇨🇺 Cuba</option>
+                                <option value="Ecuador">🇪🇨 Ecuador</option>
+                                <option value="El Salvador">🇸🇻 El Salvador</option>
+                                <option value="Guatemala">🇬🇹 Guatemala</option>
+                                <option value="Honduras">🇭🇳 Honduras</option>
+                                <option value="México">🇲🇽 México</option>
+                                <option value="Nicaragua">🇳🇮 Nicaragua</option>
+                                <option value="Panamá">🇵🇦 Panamá</option>
+                                <option value="Paraguay">🇵🇾 Paraguay</option>
+                                <option value="Perú">🇵🇪 Perú</option>
+                                <option value="República Dominicana">🇩🇴 República Dominicana</option>
+                                <option value="Uruguay">🇺🇾 Uruguay</option>
+                                <option value="Venezuela">🇻🇪 Venezuela</option>
+                            </optgroup>
+
+                            <optgroup label="🌍 Europa">
+                                <option value="Alemania">🇩🇪 Alemania</option>
+                                <option value="España">🇪🇸 España</option>
+                                <option value="Francia">🇫🇷 Francia</option>
+                                <option value="Italia">🇮🇹 Italia</option>
+                                <option value="Portugal">🇵🇹 Portugal</option>
+                            </optgroup>
+
+                        </select>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="dniCreacionInput" class="form-label">DNI</label>
+                        <input type="text" class="form-control" id="dniCreacionInput" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="emailCreacionInput" class="form-label">Email (opcional)</label>
+                        <input type="email" class="form-control" id="emailCreacionInput" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="notasCreacionInput" class="form-label">Notas (opcional)</label>
+                        <textarea
+                        class="form-control"
+                        id="notasCreacionInput"
+                        rows="3"
+                        ></textarea>
+                    </div>
+
+                </form>
+            </div>
+            
+            <!-- Pie de modal -->
+            <div class="modal-footer">
+
+                <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+                >
+                Cancelar
+                </button>
+
+                <button
+                type="button"
+                form="estudianteCreacionForm"
+                class="btn btn-success"
+                onclick="crearEstudiante()">
+                Crear estudiante
+                </button>
+
+            </div>
+        
+        </div>
+    </div>
+</div>

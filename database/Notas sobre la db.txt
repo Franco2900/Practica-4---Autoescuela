@@ -1,0 +1,20 @@
+Si se usa encriptación para el código del usuario, recordar que la encriptación usa minimo 60 caracteres
+
+Para sacer screenshots a la pantalla y hacer el DER:
+1) Usando PHPMyAdmin, seleccionar la base de datos -> Más -> Diseñador
+2) Sacar screenshot con las teclas Shift + Windows + S
+3) En Paint, pegar el screenshot y guardar la imagen
+
+Para exportar la base de datos:
+1) Usando PHPMyAdmin, seleccionar Exportar -> Personalizado
+2) En las opciones personalizadas, marcar en la parte de Opciones de creación de objetos:
+	Agregar sentencia CREATE DATABASE / USE
+	Agregar sentencia DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT / TRIGGER
+3) Exportar la base de datos
+
+Para reiniciar el id de una tabla:
+1) Usando PHPMyAdmin, seleccionar SQL
+2) Usar los siguientes comandos:
+	TRUNCATE TABLE `nombre_tabla`;
+	ALTER TABLE `nombre_tabla` AUTO_INCREMENT = 1;
+3) Clic en Continuar

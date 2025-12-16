@@ -1,0 +1,107 @@
+<link rel="stylesheet" type="text/css" href="/css/clases.css">
+
+<div class="row">
+
+  <!-- IZQUIERDA: checkbox + contenedores de clases -->
+  <div class="col-lg-9 col-md-8">
+    
+    <div id="soloHoyDiv" class="form-check mb-3">
+      <input
+        id="soloHoy"
+        type="checkbox"
+        class="form-check-input"
+        onclick="buscarClasesDeHoy(this)"
+      >
+      <label for="soloHoy" class="form-check-label ms-2">
+        Mostrar solo clases de hoy
+      </label>
+    </div>
+
+    <!-- Div para almacenar las distintas busquedas por filtro realizadas -->
+    <div id="busquedaConFiltroDiv"></div>
+
+    <div id="clasesDeHoyEnAdelanteDiv">
+      <%- htmlTablaClases %>
+    </div>
+
+  </div>
+
+  <!-- DERECHA: filtros de búsqueda por fecha -->
+  <div class="col-lg-3 col-md-4">
+
+    <!-- Boton de creación de estudiante -->
+    <button type="button" 
+            class="btn btn-primary btn-lg"
+            data-bs-toggle="modal"
+            data-bs-target="#claseCreacionModal">
+        Crear nueva clase
+    </button>
+    <br></br>
+
+    <!-- Busqueda por rango de fechas -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Búsqueda por fecha</h5>
+        <div class="mb-3">
+          <label for="fechaDesde" class="form-label">Desde</label>
+          <input id="fechaDesde" type="date" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="fechaHasta" class="form-label">Hasta</label>
+          <input id="fechaHasta" type="date" class="form-control">
+        </div>
+        <div class="d-grid gap-2">
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="buscarPorRangoFecha()"
+          >
+            Buscar
+          </button>
+          <button
+            class="btn btn-secondary"
+            type="button"
+            onclick="resetFiltros()"
+          >
+            Limpiar
+          </button>
+        </div>
+      </div>
+    </div>
+    <br></br>
+
+    <!-- Busqueda por estudiante -->
+    <div id="divBusquedaPorNombreYApellido">
+      <p>Buscar clases del estudiante</p>
+      <input id="buscarClasesPorNombreYApellido" 
+             type="text" 
+             size="20" 
+             oninput="buscarClasesPorNombreYApellido()">
+    </div>
+    <br></br>
+
+    <!-- Boton de creación de evento -->
+    <button type="button" 
+            class="btn btn-warning btn-lg"
+            data-bs-toggle="modal"
+            data-bs-target="#eventoCreacionModal">
+        Crear nuevo evento
+    </button>
+
+  </div>
+
+</div>
+
+<%- include('partials/clase/claseCreacionModal.ejs') %>
+<%- include('partials/clase/claseModificacionModal.ejs') %>
+<%- include('partials/evento/eventoCreacionModal.ejs') %>
+<%- include('partials/evento/eventoModificacionModal.ejs') %>
+
+<script src="/js/clases-util.js"></script>
+
+<script src="/js/clasesABM.js"></script>
+<script src="/js/clases-busqueda-de-hoy.js"></script>
+<script src="/js/clases-busqueda-por-rango-de-fecha.js"></script>
+<script src="/js/clases-busqueda-por-estudiante.js"></script>
+
+<script src="/js/eventosABM.js"></script>

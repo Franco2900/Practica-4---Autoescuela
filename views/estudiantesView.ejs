@@ -1,0 +1,173 @@
+<link rel="stylesheet" type="text/css" href="/css/estudiantes.css">
+
+<h2>Estudiantes</h2>
+
+<p>Acá puede ver el listado de todos los estudiantes.</p>
+<p>Total de estudiantes: <span id="cantidadEstudiantes"><%= estudiantes.length %></span></p>
+
+<!-- Boton de creación de estudiante -->
+<button type="button" 
+        class="btn btn-primary btn-lg"
+        data-bs-toggle="modal"
+        data-bs-target="#estudianteCreacionModal">
+    Crear nuevo estudiante
+</button>
+<br></br>
+
+
+<!-- Inputs para búsquedas con filtro -->
+<div class="row">
+
+    <div class="col-3" id="manejoTablaBusquedaPorNombre">
+        <p>Buscar estudiante por nombre</p>
+        <input id="buscarEstudiantePorNombre" 
+               type="text" 
+               size="20" 
+               oninput="buscarEstudiantePorNombre()">
+    </div>
+
+    <div class="col-3" id="manejoTablaBusquedaPorApellido">
+        <p>Buscar estudiante por apellido</p>
+        <input id="buscarEstudiantePorApellido" 
+               type="text" 
+               size="20" 
+               oninput="buscarEstudiantePorApellido()">
+    </div>
+
+    <div class="col-6"></div>
+
+</div>  
+
+
+<!-- Tabla para mostrar todos los estudiantes -->
+<table id='tablaEstudiantes' class="table table-striped mt-4">
+
+  <thead id='tablaEstudiantesCabeza'>
+    <tr>
+      <th>Nombre/s</th>
+      <th>Apellido/s</th>
+      <th>Dirección</th>
+      <th>Celular</th>
+      <th>Nacionalidad</th>
+      <th>DNI</th>
+      <th>Email</th>
+      <th>Notas</th>
+      <th>Ver Clases / Pagos</th>
+      <th>Modificar / Eliminar Estudiante</th>
+    </tr>
+  </thead>
+
+  <tbody id="tablaEstudiantesBody">
+  <% estudiantes.forEach(estudiante => { %>
+
+    <tr data-id="<%= estudiante.id %>">
+
+      <!-- Datos del estudiante -->
+      <td><%= estudiante.nombre %></td>
+      <td><%= estudiante.apellido %></td>
+      <td><%= estudiante.direccion %></td>
+      <td><%= estudiante.celular %></td>
+      <td><%= estudiante.nacionalidad %></td>
+      <td><%= estudiante.dni %></td>
+      <td><%= estudiante.email %></td>
+
+      <!-- Notas -->
+      <td>
+        <% if (estudiante.notas) { %>
+          <%= estudiante.notas %>
+        <% } else { %>
+          Sin notas
+        <% } %>
+      </td>
+      
+      
+      <td>
+
+        <!-- Botón para ver clases -->
+        <button
+          type="button"
+          class="btn btn-sm btn-info me-2 mb-2"
+          title="Ver clases"
+          data-bs-toggle="modal"
+          data-bs-target="#estudianteClasesModal"
+          onclick="verClasesDelEstudiantePorID(<%= estudiante.id %>)"
+        >
+          <i class="fas fa-calendar-alt"></i>
+        </button>
+
+        <br>
+
+        <!-- Botón para ver pagos -->
+        <button
+          type="button"
+          class="btn btn-sm btn-success"
+          title="Ver pagos"
+          data-bs-toggle="modal"
+          data-bs-target="#estudiantePagosModal"
+          onclick="verPagosDelEstudiante(<%= estudiante.id %>)"
+        >
+          <i class="fas fa-dollar-sign"></i>
+        </button>
+
+      </td>
+
+      <!-- Botones de modificar y eliminar estudiante -->
+      <td>
+
+        <!-- Botón para mostrar modal de edición -->
+        <button
+          type="button"
+          class="btn btn-sm btn-primary me-2 mb-2"
+          data-bs-toggle="modal"
+          data-bs-target="#estudianteModificacionModal"
+          title="Modificar estudiante"
+          onclick="mostrarModalDeModificacion(<%= JSON.stringify(estudiante) %>)"
+        >
+          <i class="fas fa-edit"></i>
+        </button>
+
+        <br>
+
+        <!-- Botón para eliminar -->
+        <button
+          type="button"
+          class="btn btn-sm btn-danger"
+          title="Eliminar estudiante"
+          aria-label="Eliminar estudiante"
+          onclick="borrarEstudiante(<%= estudiante.id %>, '<%= estudiante.nombre %>', '<%= estudiante.apellido %>', this)"
+        >
+          <i class="fas fa-trash"></i>
+        </button>
+
+      </td>
+
+    </tr>
+
+  <% }) %>
+  </tbody>
+
+</table>
+
+
+<%- include('partials/estudiante/estudianteCreacionModal.ejs') %>
+<%- include('partials/estudiante/estudianteModificacionModal.ejs') %>
+
+<%- include('partials/estudiante/estudianteClasesModal.ejs') %>
+
+<%- include('partials/estudiante/estudiantePagosModal.ejs') %>
+<%- include('partials/pago/pagoCreacionModal.ejs') %>
+<%- include('partials/pago/pagoModificacionModal.ejs') %>
+
+
+<script>
+  const dominio = window.location.origin;
+
+  let estudianteActualId = null;
+  let estudianteActualNombre = '';
+</script>
+
+<script src="/js/estudiantesABM.js"></script>
+<script src="/js/estudiantesBusquedaConFiltro.js"></script>
+<script src="/js/estudiantesClases.js"></script>
+
+<script src="/js/pagosABM.js"></script>

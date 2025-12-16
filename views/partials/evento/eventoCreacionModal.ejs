@@ -1,0 +1,104 @@
+<!-- Modal para creación de evento -->
+<div
+  class="modal fade"
+  id="eventoCreacionModal"
+  tabindex="-1"
+  aria-labelledby="eventoCreacionModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Encabezado -->
+      <div class="modal-header">
+        <h5 class="modal-title mx-auto" id="eventoCreacionModalLabel">
+          Creación de evento
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Cerrar"
+        ></button>
+      </div>
+
+      <!-- Cuerpo con formulario -->
+      <div class="modal-body">
+        <form id="eventoCreacionForm" novalidate>
+
+          <div class="mb-3">
+            <label for="fechaEventoInput" class="form-label"><strong>Fecha</strong></label>
+            <input
+              type="date"
+              class="form-control"
+              id="fechaEventoInput"
+              name="fecha"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="horaDesdeEventoInput" class="form-label"><strong>Hora desde</strong></label>
+            <input
+              type="time"
+              class="form-control"
+              id="horaDesdeEventoInput"
+              name="hora_desde"
+              step="60"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="horaHastaEventoInput" class="form-label"><strong>Hora hasta</strong></label>
+            <input
+              type="time"
+              class="form-control"
+              id="horaHastaEventoInput"
+              name="hora_hasta"
+              step="60"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="descripcionEventoTextarea" class="form-label"><strong>Descripción</strong></label>
+            <textarea
+              class="form-control"
+              id="descripcionEventoTextarea"
+              name="descripcion"
+              rows="3"
+              maxlength="300"
+              placeholder="Breve descripción del evento"
+              required
+            ></textarea>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Pie de modal -->
+      <div class="modal-footer">
+
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="button"
+          form="eventoCreacionForm"
+          class="btn btn-success"
+          onclick="crearEvento()"
+        >
+          Crear evento
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>

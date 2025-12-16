@@ -1,0 +1,94 @@
+<div
+  class="modal fade"
+  id="pagoCreacionModal"
+  tabindex="-1"
+  aria-labelledby="pagoCreacionModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Encabezado -->
+      <div class="modal-header">
+        <h5 class="modal-title mx-auto" id="pagoCreacionModalLabel">
+          Creación de pago
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <!-- Cuerpo con formulario -->
+      <div class="modal-body">
+        <form id="pagoCreacionForm" autocomplete="off">
+
+          <div class="mb-3">
+            <label for="cantidadCreacionInput" class="form-label">Cantidad pagada</label>
+            <input
+              type="number"
+              class="form-control"
+              id="cantidadCreacionInput"
+              name="cantidad_pagada"
+              min="0"
+              step="1"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="fechaCreacionInput" class="form-label">Fecha</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fechaCreacionInput"
+              name="fecha"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="horaCreacionInput" class="form-label">Hora</label>
+            <input
+              type="time"
+              class="form-control"
+              id="horaCreacionInput"
+              name="hora"
+              step="60"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="estudianteCreacionSelect" class="form-label">Alumno</label>
+            <select
+              id="estudianteCreacionSelect"
+              name="estudiante_id"
+              class="form-select"
+              required
+            >
+              <% estudiantes.forEach(function(estudiante) { %>
+                <option value="<%= estudiante.id %>">
+                  <%= estudiante.nombre %> <%= estudiante.apellido %>
+                </option>
+              <% }) %>
+            </select>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Pie de modal -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+
+        <button
+          type="submit"
+          form="pagoCreacionForm"
+          class="btn btn-success"
+          onclick="crearPago()"
+        >
+          Crear Pago
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

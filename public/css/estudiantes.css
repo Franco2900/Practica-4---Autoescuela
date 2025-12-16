@@ -1,0 +1,27 @@
+#tablaEstudiantes tbody tr 
+{
+  background-color: white;
+}
+
+/* Al pasar el mouse, levanta la fila y la resalta con otro color */
+#tablaEstudiantes tbody tr:hover td 
+{
+    transform: translateY(-6px);
+    background-color: #cfe2ff; /* azul claro hover */
+    transition: background-color .25s ease;
+}
+
+/* Espaciado interno para notar la separación */
+#tablaEstudiantes td, #tablaEstudiantes th 
+{
+  padding: 0.75rem 1rem;
+}
+
+/* Para mostrar el estado de las clases */
+.badge-status {
+  min-width: 88px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+}

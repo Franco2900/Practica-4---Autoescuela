@@ -1,0 +1,110 @@
+<div
+  class="modal fade"
+  id="pagoModificacionModal"
+  tabindex="-1"
+  aria-labelledby="pagoModificacionModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Encabezado -->
+      <div class="modal-header">
+        <h5 class="modal-title mx-auto" id="pagoModificacionModalLabel">
+          Modificación de pago
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Cerrar"
+        ></button>
+      </div>
+
+      <!-- Cuerpo con formulario -->
+      <div class="modal-body">
+        <form id="pagoModificacionForm" autocomplete="off">
+          
+          <!-- ID oculto para saber qué pago modificar -->
+          <input
+            type="hidden"
+            id="pagoIdModificacionInput"
+            name="id"
+          />
+
+          <div class="mb-3">
+            <label
+              for="cantidadModificacionInput"
+              class="form-label"
+            >
+              Cantidad pagada
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="cantidadModificacionInput"
+              name="cantidad_pagada"
+              min="0"
+              step="1"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label
+              for="fechaModificacionInput"
+              class="form-label"
+            >
+              Fecha
+            </label>
+            <input
+              type="date"
+              class="form-control"
+              id="fechaModificacionInput"
+              name="fecha"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label
+              for="horaModificacionInput"
+              class="form-label"
+            >
+              Hora
+            </label>
+            <input
+              type="time"
+              class="form-control"
+              id="horaModificacionInput"
+              name="hora"
+              step="60"
+              required
+            />
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Pie de modal -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          form="pagoModificacionForm"
+          class="btn btn-primary"
+          onclick="modificarPago()"
+        >
+          Actualizar Pago
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

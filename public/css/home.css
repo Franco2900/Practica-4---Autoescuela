@@ -1,0 +1,17 @@
+.hero 
+{
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.15)), url('/images/style/Auto 1.webp') center/cover no-repeat;
+    color: #fff;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+.lead 
+{
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}

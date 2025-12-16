@@ -1,0 +1,114 @@
+<!-- Modal para creación de clase -->
+<div
+  class="modal fade"
+  id="claseCreacionModal"
+  tabindex="-1"
+  aria-labelledby="claseCreacionModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Encabezado -->
+      <div class="modal-header">
+        <h5 class="modal-title mx-auto" id="claseCreacionModalLabel">
+          Creación de clase
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Cerrar"
+        ></button>
+      </div>
+
+      <!-- Cuerpo con formulario -->
+      <div class="modal-body">
+        <form id="claseCreacionForm">
+          
+          <div class="mb-3">
+            <label for="fechaCreacionInput" class="form-label">Fecha</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fechaCreacionInput"
+              name="fecha"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="horaDesdeCreacionInput" class="form-label">
+              Hora desde
+            </label>
+            <input
+              type="time"
+              class="form-control"
+              id="horaDesdeCreacionInput"
+              name="hora_desde"
+              step="60"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="horaHastaCreacionInput" class="form-label">
+              Hora hasta
+            </label>
+            <input
+              type="time"
+              class="form-control"
+              id="horaHastaCreacionInput"
+              name="hora_hasta"
+              step="60"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="estudianteCreacionSelect" class="form-label">
+              Estudiante
+            </label>
+            <select
+              id="estudianteCreacionSelect"
+              name="estudiante_id"
+              class="form-select"
+              required
+            >
+              <option value="" disabled selected>Seleccione un estudiante</option>
+              <% estudiantes.forEach(function(estudiante) { %>
+                <option value="<%= estudiante.id %>">
+                  <%= estudiante.nombre %> <%= estudiante.apellido %>
+                </option>
+              <% }) %>
+            </select>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Pie de modal -->
+      <div class="modal-footer">
+
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="button"
+          form="claseCreacionForm"
+          class="btn btn-success"
+          onclick="crearClase()"
+        >
+          Crear clase
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titulo del sitio web -->
+  <title>My way</title>
+  <!-- Icono del sitio web -->
+  <link rel="icon" href="/images/style/favicon.ico" type="image/x-icon">
+
+  <!-- Hoja de estilo del layout -->
+  <link rel="stylesheet" type="text/css" href="/css/layout.css">
+  <!-- Bootstrap CSS -->
+  <link href="/bootstrapCSS/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="/bootstrapICONS/bootstrap-icons.css" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link href="/fontawesome/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="container-fluid p-0">
+        <img src="/images/style/Banner 3.png" 
+            alt="Imagen banner" 
+            class="img-fluid w-100"/>
+    </header>
+
+    <nav>
+
+        <a href="/">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </a>
+
+        <a href="/contacto">
+          <i class="fa-solid fa-phone"></i>
+          Contacto
+        </a>
+
+        <!-- Si el usuario NO inicio sesión -->
+        <% if (!usuario.nombre) { %> 
+
+          <a href="/login">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Login
+          </a>
+
+          <!-- <a href="/register">
+            Register
+          </a> -->
+
+        <!-- Si el usuario SI inicio sesión -->
+        <% } else { %> 
+            
+          <a href="/estudiantes">
+            <i class="fas fa-user-graduate"></i>
+            Estudiantes
+          </a>
+
+          <a href="/clases">
+            <i class="fas fa-calendar-alt"></i>
+            Clases
+          </a>
+
+          <a href="/logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Cerrar sesion
+          </a>
+
+        <% } %>
+
+    </nav>
+    
+    <div id="plantillaSecundaria">
+        <%- include(body) %> <!-- Plantilla secundaria acá -->
+    </div>
+    
+    <!-- FOOTER -->
+  <footer>
+    <div class="container-fluid">
+            
+      <div class="row" style="background-color: #389696;">
+
+        <div class="col-md-4">
+          <i class="bi bi-geo-alt"></i>
+          Ubicación: Calle Real 123
+        </div>
+               
+        <div class="col-md-4">
+          <i class="bi bi-telephone"></i>
+          Teléfono: 1234-5678
+        </div>
+
+        <div class="col-md-4">
+          <i class="fab fa-whatsapp fa-fw text-white"></i>
+          Whatsapp: 11-2222-3333
+        </div>
+
+      </div>
+            
+      <div class="row" style="background-color: #333;">
+        <div class="col-md-12">Autoescuela This is the way</div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="/bootstrapJS/bootstrap.bundle.min.js"></script>
+  <!-- Font Awesome JS -->
+  <script defer src="/fontawesome/js/all.min.js"></script>
+
+</body>
+
+</html>

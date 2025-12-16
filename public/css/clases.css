@@ -1,0 +1,53 @@
+/* Casilla de checkbox más visible */
+.form-check-input {
+  accent-color: #222222;       /* color de la marca y la caja en navegadores modernos */
+  border: 1.5px solid #222222; /* borde más oscuro */
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+/* Sombra de foco más oscura para mayor contraste */
+.form-check-input:focus {
+  box-shadow: 0 0 0 .18rem rgba(34,34,34,0.18);
+  outline: none;
+}
+
+
+/* Al pasar el mouse, levanta la fila y la resalta con otro color */
+#tablaDeClases tbody tr:hover td 
+{
+    transform: translateY(-6px);
+    background-color: #cfe2ff; /* azul claro hover */
+    transition: background-color .25s ease;
+}
+
+/* Espaciado interno para notar la separación */
+#tablaDeClases td, #tablaDeClases th 
+{
+  padding: 0.75rem 1rem;
+}
+
+/* ==== Cabecera de cambio de día ==== */
+#tablaDeClases tbody tr.day-header td {
+  background-color: #42A5F5;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* ==== Líneas separadoras ==== */
+#tablaDeClases tbody tr.hr-separator td {
+  padding: 0;
+  background: transparent;
+}
+#tablaDeClases tbody tr.hr-separator td hr {
+  border: none;
+  border-top: 2px dashed #42A5F5;
+  margin: 0.3em 0;
+}
+
+/* ==== Hueco libre ==== */
+#tablaDeClases tbody tr.free-slot td {
+  background-color: #A5D6A7;
+  color: #1B5E20;
+}

@@ -1,0 +1,158 @@
+<!-- Formulario para la modificación del estudiante -->
+<!-- Aparece y desaparece dependiendo de si el usuario hizo click en "Modificar estudiante" o no -->
+<div
+  class="modal fade"
+  id="estudianteModificacionModal"
+  tabindex="-1"
+  aria-labelledby="estudianteModificacionModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Encabezado -->
+      <div class="modal-header">
+        <h5 class="modal-title mx-auto" 
+            id="estudianteModificacionModalLabel">
+          Modificación de estudiante
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Cerrar"
+        ></button>
+      </div>
+
+      <!-- Cuerpo con formulario -->
+      <div class="modal-body">
+        <form id="estudianteModificacionForm">
+
+          <!-- Campo oculto para el ID -->
+          <input type="hidden" id="modificacionID" />
+
+          <div class="mb-3">
+            <label for="nombreModificacionInput" class="form-label">Nombre/s</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombreModificacionInput"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="apellidoModificacionInput" class="form-label">Apellido/s</label>
+            <input
+              type="text"
+              class="form-control"
+              id="apellidoModificacionInput"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="direccionModificacionInput" class="form-label">Dirección</label>
+            <input
+              type="text"
+              class="form-control"
+              id="direccionModificacionInput"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="celularModificacionInput" class="form-label">Celular</label>
+            <input
+              type="text"
+              class="form-control"
+              id="celularModificacionInput"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="nacionalidadModificacionSelect" class="form-label">Nacionalidad</label>
+            <select class="form-select" id="nacionalidadModificacionSelect" required>
+            <option value="" selected disabled>Seleccione un país</option>
+
+            <optgroup label="🌎 Latinoamérica">
+              <option value="Argentina">🇦🇷 Argentina</option>
+              <option value="Bolivia">🇧🇴 Bolivia</option>
+              <option value="Brasil">🇧🇷 Brasil</option>
+              <option value="Chile">🇨🇱 Chile</option>
+              <option value="Colombia">🇨🇴 Colombia</option>
+              <option value="Costa Rica">🇨🇷 Costa Rica</option>
+              <option value="Cuba">🇨🇺 Cuba</option>
+              <option value="Ecuador">🇪🇨 Ecuador</option>
+              <option value="El Salvador">🇸🇻 El Salvador</option>
+              <option value="Guatemala">🇬🇹 Guatemala</option>
+              <option value="Honduras">🇭🇳 Honduras</option>
+              <option value="México">🇲🇽 México</option>
+              <option value="Nicaragua">🇳🇮 Nicaragua</option>
+              <option value="Panamá">🇵🇦 Panamá</option>
+              <option value="Paraguay">🇵🇾 Paraguay</option>
+              <option value="Perú">🇵🇪 Perú</option>
+              <option value="República Dominicana">🇩🇴 República Dominicana</option>
+              <option value="Uruguay">🇺🇾 Uruguay</option>
+              <option value="Venezuela">🇻🇪 Venezuela</option>
+            </optgroup>
+
+            <optgroup label="🌍 Europa">
+              <option value="Alemania">🇩🇪 Alemania</option>
+              <option value="España">🇪🇸 España</option>
+              <option value="Francia">🇫🇷 Francia</option>
+              <option value="Italia">🇮🇹 Italia</option>
+              <option value="Portugal">🇵🇹 Portugal</option>
+            </optgroup>
+
+            </select>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="dniModificacionInput" class="form-label">DNI</label>
+            <input type="text" class="form-control" id="dniModificacionInput" required />
+          </div>
+
+          <div class="mb-3">
+              <label for="emailModificaciconInput" class="form-label">Email (opcional)</label>
+              <input type="email" class="form-control" id="emailModificaciconInput" />
+          </div>
+
+          <div class="mb-3">
+            <label for="notasModificacionInput" class="form-label">
+              Notas (opcional)
+            </label>
+            <textarea
+              class="form-control"
+              id="notasModificacionInput"
+              rows="3"
+            ></textarea>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Pie de modal -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          form="estudianteModificacionForm"
+          class="btn btn-primary"
+          onclick="modificarEstudiante()"
+        >
+          Modificar estudiante
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
